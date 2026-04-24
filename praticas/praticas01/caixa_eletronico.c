@@ -6,8 +6,13 @@ int main() {
     printf("Digite o valor do saque: ");
     scanf("%d", &valor);
 
-    if(valor > 1000) {
-        printf("Valor maximo permitido eh 1000\n");
+    if (valor <= 0 || valor > 1000) {
+        printf("Valor invalido. Digite um valor entre 1 e 1000.\n");
+        return 0;
+    }
+
+    if (valor % 2 != 0) {
+        printf("Valor invalido. O saque deve ser um valor par.\n");
         return 0;
     }
 
