@@ -1,34 +1,33 @@
 #include <stdio.h>
 
-// Fatorial com repetição
-int fatorial_iterativo(int n) {
-    int i, resultado = 1;
-    for(i = 1; i <= n; i++) {
-        resultado *= i;
-    }
-    return resultado;
-}
-
-// Fatorial com recursividade
-int fatorial_recursivo(int n) {
-    if(n == 0 || n == 1)
-        return 1;
-    else
-        return n * fatorial_recursivo(n - 1);
-}
-
 int main() {
-    int n;
+    int vetor[100], valor, i, encontrado = -1;
 
-    printf("Digite um numero: ");
-    scanf("%d", &n);
+    // Preenche o vetor
+    for(i = 0; i < 100; i++) {
+        printf("Digite o elemento %d: ", i + 1);
+        scanf("%d", &vetor[i]);
+    }
 
-    printf("Fatorial (iterativo): %d\n", fatorial_iterativo(n));
-    printf("Fatorial (recursivo): %d\n", fatorial_recursivo(n));
+    printf("Digite o valor a buscar: ");
+    scanf("%d", &valor);
+
+    // Busca sequencial
+    for(i = 0; i < 100; i++) {
+        if(vetor[i] == valor) {
+            encontrado = i;
+            break;
+        }
+    }
+
+    if(encontrado != -1)
+        printf("Valor encontrado na posicao %d\n", encontrado);
+    else
+        printf("Valor nao encontrado\n");
 
     // Complexidade:
-    // Iterativo: O(n)
-    // Recursivo: O(n)
+    // Melhor caso: O(1) - elemento na primeira posicao
+    // Pior caso:   O(n) - elemento na ultima posicao ou nao encontrado
 
     return 0;
 }
