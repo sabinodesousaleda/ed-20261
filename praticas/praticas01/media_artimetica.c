@@ -7,8 +7,8 @@ int main() {
     printf("Digite a quantidade de numeros: ");
     scanf("%d", &n);
 
-    if(n > 100) {
-        printf("Valor maximo permitido eh 100\n");
+    if (n <= 0 || n > 100) {
+        printf("Valor invalido. Digite um valor entre 1 e 100.\n");
         return 0;
     }
 
